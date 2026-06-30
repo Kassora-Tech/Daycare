@@ -35,7 +35,7 @@ export default function Stats() {
     <section className="py-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-warm-mint/40 via-warm-sky/30 to-warm-lavender/40" />
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-x divide-foreground/[0.06]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-2 gap-x-4 lg:divide-x lg:divide-foreground/[0.06]">
           {stats.map((stat) => (
             <StatItem key={stat.label} {...stat} />
           ))}

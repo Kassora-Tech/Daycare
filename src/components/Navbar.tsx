@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MapPin, Clock } from "lucide-react";
+import { Menu, X, Phone, MapPin, Clock, Mail } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -32,22 +32,24 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm text-white/70 text-xs py-2 px-4"
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-5">
-            <span className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Phone size={11} className="text-primary-light" /> +27 XX XXX XXXX
-            </span>
-            <span className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
-              <MapPin size={11} className="text-primary-light" /> Middelburg, 1055
-            </span>
+          <div className="flex items-center gap-4 sm:gap-5">
+            <a href="tel:+27000000000" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Phone size={11} className="text-primary-light shrink-0" /> +27 XX XXX XXXX
+            </a>
             <span className="hidden md:flex items-center gap-1.5 hover:text-white transition-colors">
-              <Clock size={11} className="text-primary-light" /> Mon - Fri: 6:30 AM - 5:30 PM
+              <MapPin size={11} className="text-primary-light shrink-0" /> Middelburg, 1055
+            </span>
+            <span className="hidden lg:flex items-center gap-1.5 hover:text-white transition-colors">
+              <Clock size={11} className="text-primary-light shrink-0" /> Mon - Fri: 6:30 AM - 5:30 PM
             </span>
           </div>
           <a
-            href="#booking"
-            className="text-primary-light hover:text-white transition-colors font-medium tracking-wide uppercase text-[10px] flex items-center gap-1"
+            href="mailto:info@zinniadaycare.co.za"
+            className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
-            Book a Visit &rarr;
+            <Mail size={11} className="text-primary-light shrink-0" />
+            <span className="hidden sm:inline">info@zinniadaycare.co.za</span>
+            <span className="sm:hidden">Email Us</span>
           </a>
         </div>
       </motion.div>
