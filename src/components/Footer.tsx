@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Globe, Share2, Mail } from "lucide-react";
+import { Heart, Globe, Share2, Mail, Phone, Mail as MailIcon } from "lucide-react";
+import { CONTACT } from "@/lib/site";
 
 const footerLinks = {
   "Quick Links": [
@@ -44,21 +45,29 @@ export default function Footer() {
                 <span className="text-[9px] text-white/40 tracking-[0.2em] uppercase">Nursery &middot; Daycare</span>
               </div>
             </div>
-            <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-[260px]">
-              Where every child is a unique flower, nurtured with love and care to bloom beautifully.
-            </p>
-            <div className="flex gap-2.5">
-              {[Globe, Share2, Mail].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  whileHover={{ y: -2 }}
-                  className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-primary/80 flex items-center justify-center transition-colors text-white/50 hover:text-white"
-                >
-                  <Icon size={15} />
-                </motion.a>
-              ))}
-            </div>
+             <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-[260px]">
+               Where every child is a unique flower, nurtured with love and care to bloom beautifully.
+             </p>
+             <div className="space-y-2 mb-6">
+               <a href={`tel:${CONTACT.phoneTel}`} className="flex items-center gap-2 text-white/35 hover:text-primary-light text-sm transition-colors">
+                 <Phone size={14} /> {CONTACT.phoneDisplay}
+               </a>
+               <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-2 text-white/35 hover:text-primary-light text-sm transition-colors">
+                 <MailIcon size={14} /> {CONTACT.email}
+               </a>
+             </div>
+             <div className="flex gap-2.5">
+               {[Globe, Share2, Mail].map((Icon, i) => (
+                 <motion.a
+                   key={i}
+                   href="#"
+                   whileHover={{ y: -2 }}
+                   className="w-9 h-9 rounded-lg bg-white/[0.06] hover:bg-primary/80 flex items-center justify-center transition-colors text-white/50 hover:text-white"
+                 >
+                   <Icon size={15} />
+                 </motion.a>
+               ))}
+             </div>
           </div>
 
           {/* Links */}
