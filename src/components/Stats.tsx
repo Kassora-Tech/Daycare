@@ -16,25 +16,26 @@ function StatItem({ value, suffix, label, color }: { value: number; suffix: stri
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-center"
+      transition={{ duration: 0.5 }}
+      className="text-center py-6"
     >
-      <div className={`text-4xl sm:text-5xl md:text-6xl font-bold ${color}`}>
+      <div className={`text-4xl sm:text-5xl font-bold tracking-tight ${color}`}>
         {count}{suffix}
       </div>
-      <div className="text-foreground/50 text-sm sm:text-base mt-2 font-medium">{label}</div>
+      <div className="text-foreground/40 text-sm mt-2 font-medium">{label}</div>
     </motion.div>
   );
 }
 
 export default function Stats() {
   return (
-    <section className="py-16 sm:py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-warm-mint via-warm-sky to-warm-lavender opacity-50" />
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+    <section className="py-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-warm-mint/40 via-warm-sky/30 to-warm-lavender/40" />
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-x divide-foreground/[0.06]">
           {stats.map((stat) => (
             <StatItem key={stat.label} {...stat} />
           ))}

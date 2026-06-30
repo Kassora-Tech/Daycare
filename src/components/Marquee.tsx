@@ -13,14 +13,14 @@ const colors = [
 
 export default function Marquee() {
   return (
-    <div className="py-8 overflow-hidden bg-gradient-to-r from-warm-cream via-white to-warm-cream border-y border-foreground/5">
-      <div className="animate-marquee whitespace-nowrap flex items-center gap-8">
+    <div className="py-6 overflow-hidden bg-white/60 backdrop-blur-sm border-y border-foreground/[0.04]">
+      <div className="animate-marquee whitespace-nowrap flex items-center">
         {[...words, ...words].map((word, i) => (
-          <span key={i} className="flex items-center gap-8">
-            <span className={`text-2xl sm:text-3xl md:text-4xl font-bold ${colors[i % colors.length]} opacity-60`}>
+          <span key={i} className="flex items-center mx-4">
+            <span className={`text-xl sm:text-2xl md:text-3xl font-bold ${colors[i % colors.length]} opacity-40`}>
               {word}
             </span>
-            <span className="text-foreground/10 text-2xl">&bull;</span>
+            <span className="text-foreground/[0.08] text-xl ml-8">&bull;</span>
           </span>
         ))}
       </div>
