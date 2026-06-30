@@ -3,6 +3,7 @@
 import { AnimatedSection, fadeInLeft, fadeInRight, ParallaxSection } from "@/lib/animations";
 import { motion } from "framer-motion";
 import { CalendarDays, Clock, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { CONTACT } from "@/lib/site";
 
 export default function Booking() {
   return (
@@ -99,10 +100,10 @@ export default function Booking() {
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <div className="space-y-5">
                 {[
-                  { icon: Phone, label: "Phone", value: "+27 XX XXX XXXX" },
-                  { icon: Mail, label: "Email", value: "info@zinniadaycare.co.za" },
-                  { icon: MapPin, label: "Location", value: "Middelburg, 1055" },
-                  { icon: Clock, label: "Hours", value: "Mon-Fri: 6:30 AM - 6:30 PM" },
+                  { icon: Phone, label: "Phone", value: CONTACT.phoneDisplay },
+                  { icon: Mail, label: "Email", value: CONTACT.email },
+                  { icon: MapPin, label: "Location", value: CONTACT.location },
+                  { icon: Clock, label: "Hours", value: CONTACT.hours },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0">

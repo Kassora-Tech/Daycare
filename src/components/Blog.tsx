@@ -3,34 +3,9 @@
 import { AnimatedSection, StaggeredContainer, fadeInUp, ParallaxSection } from "@/lib/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Calendar, ArrowRight } from "lucide-react";
-
-const posts = [
-  {
-    title: "5 Fun Learning Activities for Toddlers at Home",
-    excerpt: "Discover creative ways to keep your little ones engaged and learning through everyday play.",
-    category: "Parenting Tips",
-    date: "28 Jun 2026",
-    image: "/images/gallery-arts.png",
-    catColor: "text-primary bg-primary/10",
-  },
-  {
-    title: "The Importance of Outdoor Play in Early Childhood",
-    excerpt: "Why fresh air and nature are essential building blocks for healthy development.",
-    category: "Child Development",
-    date: "22 Jun 2026",
-    image: "/images/gallery-outdoor.png",
-    catColor: "text-accent-blue bg-accent-blue/10",
-  },
-  {
-    title: "Preparing Your Child for Their First Day at Daycare",
-    excerpt: "Tips and advice to make the transition smooth and stress-free for both you and your child.",
-    category: "Getting Started",
-    date: "15 Jun 2026",
-    image: "/images/about.png",
-    catColor: "text-secondary bg-secondary/10",
-  },
-];
+import { posts } from "@/lib/posts";
 
 export default function Blog() {
   return (
@@ -51,38 +26,40 @@ export default function Blog() {
         <StaggeredContainer className="grid md:grid-cols-3 gap-8">
           {posts.map((post) => (
             <motion.article
-              key={post.title}
+              key={post.slug}
               variants={fadeInUp}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-foreground/5 cursor-pointer"
+              className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-foreground/5"
             >
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`text-xs font-semibold px-3 py-1 rounded-full ${post.catColor}`}>
-                    {post.category}
-                  </span>
-                  <span className="text-xs text-foreground/40 flex items-center gap-1">
-                    <Calendar size={12} />
-                    {post.date}
+              <Link href={`/blog/${post.slug}`} className="block">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${post.catColor}`}>
+                      {post.category}
+                    </span>
+                    <span className="text-xs text-foreground/40 flex items-center gap-1">
+                      <Calendar size={12} />
+                      {post.date}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-foreground/55 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+                  <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all">
+                    Read More <ArrowRight size={14} />
                   </span>
                 </div>
-                <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors leading-snug">
-                  {post.title}
-                </h3>
-                <p className="text-foreground/55 text-sm leading-relaxed mb-4">{post.excerpt}</p>
-                <span className="inline-flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all">
-                  Read More <ArrowRight size={14} />
-                </span>
-              </div>
+              </Link>
             </motion.article>
           ))}
         </StaggeredContainer>

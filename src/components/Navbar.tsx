@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MapPin, Clock, Mail } from "lucide-react";
+import { CONTACT } from "@/lib/site";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -33,22 +34,22 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4 sm:gap-5">
-            <a href="tel:+27000000000" className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Phone size={11} className="text-primary-light shrink-0" /> +27 XX XXX XXXX
+            <a href={`tel:${CONTACT.phoneTel}`} className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Phone size={11} className="text-primary-light shrink-0" /> {CONTACT.phoneDisplay}
             </a>
             <span className="hidden md:flex items-center gap-1.5 hover:text-white transition-colors">
-              <MapPin size={11} className="text-primary-light shrink-0" /> Middelburg, 1055
+              <MapPin size={11} className="text-primary-light shrink-0" /> {CONTACT.location}
             </span>
             <span className="hidden lg:flex items-center gap-1.5 hover:text-white transition-colors">
-              <Clock size={11} className="text-primary-light shrink-0" /> Mon - Fri: 6:30 AM - 6:30 PM
+              <Clock size={11} className="text-primary-light shrink-0" /> {CONTACT.hours}
             </span>
           </div>
           <a
-            href="mailto:info@zinniadaycare.co.za"
+            href={`mailto:${CONTACT.email}`}
             className="flex items-center gap-1.5 hover:text-white transition-colors"
           >
             <Mail size={11} className="text-primary-light shrink-0" />
-            <span className="hidden sm:inline">info@zinniadaycare.co.za</span>
+            <span className="hidden sm:inline">{CONTACT.email}</span>
             <span className="sm:hidden">Email Us</span>
           </a>
         </div>
