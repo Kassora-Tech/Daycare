@@ -102,7 +102,7 @@ export default function Booking() {
                   { icon: Phone, label: "Phone", value: "+27 XX XXX XXXX" },
                   { icon: Mail, label: "Email", value: "info@zinniadaycare.co.za" },
                   { icon: MapPin, label: "Location", value: "Middelburg, 1055" },
-                  { icon: Clock, label: "Hours", value: "Mon-Fri: 6:30 AM - 5:30 PM" },
+                  { icon: Clock, label: "Hours", value: "Mon-Fri: 6:30 AM - 6:30 PM" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0">
