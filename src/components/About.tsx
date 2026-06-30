@@ -2,6 +2,7 @@
 
 import { AnimatedSection, StaggeredContainer, fadeInUp, fadeInLeft, fadeInRight, ParallaxSection } from "@/lib/animations";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Heart, Shield, BookOpen, Sparkles } from "lucide-react";
 
 const values = [
@@ -35,45 +36,17 @@ export default function About() {
 
         {/* Two column layout */}
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
-          {/* Image placeholder */}
+          {/* Image */}
           <AnimatedSection variants={fadeInLeft}>
             <div className="relative">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-warm-mint via-warm-sky to-warm-lavender flex items-center justify-center">
-                <svg viewBox="0 0 400 300" className="w-3/4" fill="none">
-                  {/* Simplified illustration of children playing */}
-                  <rect x="50" y="200" width="300" height="80" rx="20" fill="#81C784" opacity="0.3" />
-                  <circle cx="120" cy="160" r="20" fill="#FF9800" />
-                  <rect x="108" y="180" width="24" height="35" rx="12" fill="#42A5F5" />
-                  <circle cx="200" cy="150" r="22" fill="#6D4C41" />
-                  <rect x="186" y="172" width="28" height="38" rx="14" fill="#F06292" />
-                  <circle cx="280" cy="155" r="18" fill="#FFCC02" />
-                  <rect x="270" y="173" width="20" height="32" rx="10" fill="#AB47BC" />
-                  {/* Butterfly */}
-                  <g className="animate-float-slow">
-                    <ellipse cx="300" cy="100" rx="8" ry="12" fill="#F06292" opacity="0.7" transform="rotate(-30 300 100)" />
-                    <ellipse cx="310" cy="100" rx="8" ry="12" fill="#AB47BC" opacity="0.7" transform="rotate(30 310 100)" />
-                    <circle cx="305" cy="100" r="2" fill="#333" />
-                  </g>
-                  {/* Sun */}
-                  <circle cx="340" cy="50" r="25" fill="#FFEE58" opacity="0.8" />
-                  {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
-                    <line key={i}
-                      x1={340 + 30 * Math.cos(angle * Math.PI / 180)}
-                      y1={50 + 30 * Math.sin(angle * Math.PI / 180)}
-                      x2={340 + 40 * Math.cos(angle * Math.PI / 180)}
-                      y2={50 + 40 * Math.sin(angle * Math.PI / 180)}
-                      stroke="#FFEE58" strokeWidth="3" strokeLinecap="round" opacity="0.6"
-                    />
-                  ))}
-                  {/* Flowers on ground */}
-                  {[80, 150, 250, 330].map((x, i) => (
-                    <g key={`fl-${i}`}>
-                      <line x1={x} y1={260} x2={x} y2={240} stroke="#4CAF50" strokeWidth="2" />
-                      <circle cx={x} cy={236} r={6} fill={["#F06292", "#FF9800", "#AB47BC", "#42A5F5"][i]} />
-                      <circle cx={x} cy={236} r={2.5} fill="#FFEE58" />
-                    </g>
-                  ))}
-                </svg>
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl shadow-primary/10 ring-1 ring-foreground/5">
+                <Image
+                  src="/images/about.png"
+                  alt="A caring teacher reading a colorful picture book with happy toddlers at Zinnia Nursery"
+                  width={1200}
+                  height={896}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
               </div>
               {/* Floating badge */}
               <motion.div
